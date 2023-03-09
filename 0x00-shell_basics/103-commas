@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -AF1 | sed 's/\([^\/]\)$/\1\//' | sort -d | sed '1d
+ls -apvm
