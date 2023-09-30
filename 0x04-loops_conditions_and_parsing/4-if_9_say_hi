@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Write a Bash script that displays Best School 10 times,
+# This script is displaying "Best School" 10 times and "Hi" in the 9th
 i="0"
 
 while [ $i -lt 10 ]
