@@ -4,13 +4,13 @@
     # display hours from 0 to 12
     # display minutes from 1 to 59
 
-i=1
-while [ $i -le 12 ];do
+i=0
+while [ $i -lt 12 ];do
+    echo "Hour: $i"
     j=1
     while [ $j -le 59 ];do
         echo $j
         ((j += 1))
     done
-    echo "Hour: $i"
     ((i += 1))
 done
