@@ -3,10 +3,10 @@
 
 file="school"
 
-if [ -e $file ]
+if [ -e "$file" ]
 then
     echo "school file exists"
-    if [ -s $file ]
+    if [ -s "$file" ]
     then
         echo "school file is not empty"
     else
