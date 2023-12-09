@@ -1,30 +1,14 @@
 #!/usr/bin/env bash
-# Configure your Nginx server to have a custom 404 page
+# Install nginx on your web-01 server
 
 sudo apt-get -y update
 sudo apt-get -y install nginx
-rm /etc/nginx/sites-available/default
 echo 'Hello World!' | sudo tee /var/www/html/index.html
-cat <<EOL > /etc/nginx/sites-available/default
-server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+sudo sed -i '/server_name _;/a \
+    error_page 404 /404.html;\n\
+    location = /404.html {\n\
+        internal;\n\
+    }' /etc/nginx/sites-available/default
 
-    root /usr/share/nginx/html;
-    index index.html;
-
-    server_name _;
-
-    location / {
-        try_files \$uri \$uri/ =404;
-    }
-
-    # Custom 404 page
-    error_page 404 /404.html;
-    location = /404.html {
-        root /usr/share/nginx/html;
-        internal;
-    }
-}
-EOL
-/etc/init.d/nginx restart
+sudo service nginx start
