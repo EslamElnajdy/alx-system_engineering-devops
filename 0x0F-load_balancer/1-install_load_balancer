@@ -10,16 +10,15 @@ sudo apt-get install -y haproxy=2.4.\*
 
 echo \
 	"
-frontend localnodes
+frontend eslamnajdy.tech
 	bind *:80
 	mode http
-	default_backend nodes
-backend nodes
+	default_backend web_servers
+backend web_servers
 	mode http
 	balance roundrobin
-	server 345618-web-01 100.26.168.126 check
-	server 345618-web-02 54.209.195.60 check" >> /etc/haproxy/haproxy.cfg
+	server 345618-web-01 100.26.168.126
+	server 345618-web-02 54.209.195.60" >> /etc/haproxy/haproxy.cfg
 	
 
 sudo service haproxy restart
-echo '["web-01", "web-02"]'
