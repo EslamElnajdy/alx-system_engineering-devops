@@ -17,8 +17,9 @@ frontend localnodes
 backend nodes
 	mode http
 	balance roundrobin
-	server 345618-web-01 100.26.168.126
-	server 345618-web-02 54.209.195.60" >> /etc/haproxy/haproxy.cfg
+	server 345618-web-01 100.26.168.126 check
+	server 345618-web-02 54.209.195.60 check" >> /etc/haproxy/haproxy.cfg
 	
 
 sudo service haproxy restart
+echo '["web-01", "web-02"]'
