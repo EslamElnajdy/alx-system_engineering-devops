@@ -1,24 +1,19 @@
 #!/usr/bin/env bash
-# configure a load-balancing server
-	
+# Configure HAproxy so that it send traffic to web-01 and web-02 using roundrobin
 
-sudo apt-get install -y --no-install-recommends software-properties-common
-sudo add-apt-repository -y ppa:vbernat/haproxy-2.4
-sudo apt-get update -y
-sudo apt-get install -y haproxy=2.4.\*
-	
-
-echo \
-	"
-frontend eslamnajdy.tech
-	bind *:80
-	mode http
-	default_backend web_servers
-backend web_servers
-	mode http
-	balance roundrobin
-	server 345618-web-01 100.26.168.126
-	server 345618-web-02 54.209.195.60" >> /etc/haproxy/haproxy.cfg
-	
-
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get -y install haproxy
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original2
+echo "
+listen 345618-lb-01
+        bind 0:80
+        mode http
+        stats enable
+        balance roundrobin
+        option httpclose
+        option forwardfor
+        server 345618-web-01 100.26.168.126 check port 80
+        server 345618-web-02 54.209.195.60 check port 80
+" | sudo tee -a /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
