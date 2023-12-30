@@ -1,0 +1,8 @@
+[mysqld]
+server-id               = 1
+log_bin                 = /var/log/mysql/mysql-bin.log
+log_bin_index           = /var/log/mysql/mysql-bin.log.index
+relay_log               = /var/log/mysql/mysql-relay-bin
+relay_log_index         = /var/log/mysql/mysql-relay-bin.index
+expire_logs_days        = 10
+max_binlog_size         = 100M
