@@ -22,7 +22,7 @@ if __name__ == "__main__":
         if task["completed"]:
             done_task += 1
 
-    print(f"Employee {employ_name} is done with tasks
+    print(f"Employee {employ_name} is done with tasks\
           ({done_task}/{total_tasks})")
     for task in todo_data:
         print(f"\t{task['title']}")
