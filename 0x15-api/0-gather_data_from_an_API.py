@@ -24,6 +24,6 @@ if __name__ == "__main__":
             done_task += 1
 
     print("Employee {} is done with tasks({}/{}):".format(employ_n, done_task,
-                                                           total_tasks))
+                                                          total_tasks))
     for task in todo_data:
         print(f"\t {task['title']}")
