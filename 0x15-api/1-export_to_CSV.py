@@ -14,7 +14,7 @@ if __name__ == "__main__":
     id = int(argv[1])
     res1 = get(f"https://jsonplaceholder.typicode.com/users/{id}")
     user_data = res1.json()
-    employee = user_data["name"]
+    employee = user_data["username"]
 
     res2 = get(f"https://jsonplaceholder.typicode.com/todos?userId={id}")
     todo_data = res2.json()
