@@ -12,7 +12,7 @@ from sys import argv
 if __name__ == "__main__":
     res1 = get(f"https://jsonplaceholder.typicode.com/users/{argv[1]}")
     user_data = res1.json()
-    employ_name = user_data["name"]
+    employ_n = user_data["name"]
 
     res2 = get(f"https://jsonplaceholder.typicode.com/todos?userId={argv[1]}")
     todo_data = res2.json()
@@ -23,7 +23,7 @@ if __name__ == "__main__":
         if task["completed"]:
             done_task += 1
 
-    print(f"Employee {employ_name} is done with tasks\
-          ({done_task}/{total_tasks}):")
+    print("Employee {} is done with tasks({}}/{}):".format(employ_n, done_task,
+                                                           total_tasks))
     for task in todo_data:
-        print(f"\t{task['title']}")
+        print(f"\t {task['title']}")
