@@ -6,6 +6,8 @@ import requests
 
 
 def number_of_subscribers(subreddit):
+    if subreddit is None:
+        return 0
     url = f'https://www.reddit.com/r/{subreddit}/about.json'
     headers = {'User-Agent': 'CustomUserAgent'}
     response = requests.get(url, headers=headers, allow_redirects=False)
