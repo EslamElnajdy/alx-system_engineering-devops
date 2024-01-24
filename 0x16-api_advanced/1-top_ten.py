@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ print the titles of the first 10hot posts """
 import requests
-import json
 
 
 def top_ten(subreddit):
