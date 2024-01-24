@@ -17,8 +17,6 @@ def number_of_subscribers(subreddit):
             subscribers_count = response.json()['data']['subscribers']
             return subscribers_count
         except KeyError:
-            print("Error: invalid response format.")
             return 0
     else:
-        print(f'Error: {response.status_code}')
         return 0
