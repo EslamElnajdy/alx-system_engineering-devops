@@ -1,5 +1,5 @@
 # postmortem
-
+![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/294/pQ9YzVY.gif)
 ## Issue Summary
 
 - Duration: The outage occurred from 10:00 AM to 12:00 PM on February 5, 2024 (UTC).
