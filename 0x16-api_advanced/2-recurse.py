@@ -15,7 +15,8 @@ def recurse(subreddit, hot_list=[], after=None):
         params = {'after': after, 'limit': 100}
         headers = {'user-agent': 'my-app/0.0.1'}
 
-        req = requests.get(url, params=params, headers=headers, allow_redirects=False)
+        req = requests.get(url, params=params, headers=headers,
+                           allow_redirects=False)
 
         if req.status_code == 200:
             data = req.json().get('data')
