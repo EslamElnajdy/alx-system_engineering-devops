@@ -8,8 +8,8 @@ def number_of_subscribers(subreddit):
     """ queries the Reddit API and returns the number of subscribers """
 
     url = f"https://api.reddit.com/r/{subreddit}/about"
-    headers = {"User-Agent": "My-User-Agent"}
-    response = requests.get(url, headers, allow_redirects=False)
+    headers = {"User-Agent": "CustomClient/1.0"}
+    response = requests.get(url, headers=headers, allow_redirects=False)
 
     if response.status_code != 200:
         return (0)
