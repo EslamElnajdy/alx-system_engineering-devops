@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 """ task 0 """
-
 import requests
 
 
@@ -13,7 +12,11 @@ def number_of_subscribers(subreddit):
     response = requests.get(url, headers={"User-Agent": "My-User-Agent"},
                             allow_redirects=False)
 
-    if response.status_code == 200:
-        return response.json().get("data").get("subscribers")
+    if response.status_code != 200:
+        return (0)
+    response = response.json()
+    if 'data' in response:
+        return (response.get('data').get('subscribers'))
+
     else:
-        return 0
+        return (0)
