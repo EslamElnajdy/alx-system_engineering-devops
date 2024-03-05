@@ -9,7 +9,7 @@ def top_ten(subreddit):
     """get first 10 hot post for a subreddit"""
     if subreddit and type(subreddit) is str:
         url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
-        headers = {'user-agent': 'my-app/0.0.1'}
+        headers = {'user-agent': 'CustomClient/1.0'}
         params = {'limit': 10}
         req = requests.get(url, params=params, headers=headers,
                            allow_redirects=False)
