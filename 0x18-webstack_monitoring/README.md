@@ -16,5 +16,4 @@ web stack monitoring can broken down into 2 categories:
 - [System monitoring by Google](https://sre.google/sre-book/monitoring-distributed-systems/)
 - [Nginx logging and monitoring](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/)
 
-## Tasks
 
